@@ -1,0 +1,295 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Нұрлы той-холл</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Golos+Text:wght@400;500;600&display=swap">
+<style>
+/* Layout: evening banquet palette, black and champagne; the free-dates calendar and per-guest budget are the working core of the page. Single dark theme by design. */
+:root {
+  --night: #121012;
+  --panel: #1c191b;
+  --panel-2: #262124;
+  --text: #f3ece2;
+  --muted: #a99e93;
+  --gold: #e3c08d;
+  --gold-deep: #b98f55;
+  --line: rgba(243, 236, 226, .12);
+  --busy: #3a3336;
+  --display: "Cormorant Garamond", Georgia, serif;
+  --body: "Golos Text", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--night); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.6; padding-inline: 16px; padding-block: 0 40px; }
+.wrap { max-width: 1100px; margin: 0 auto; }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 20px; flex-wrap: wrap; border-bottom: 1px solid var(--line); }
+.logo { font-family: var(--display); font-size: 24px; letter-spacing: .02em; }
+.logo span { color: var(--gold); }
+.demo { font-size: 12px; color: var(--muted); border: 1px dashed var(--line); padding: 3px 8px; border-radius: 6px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; font: 600 15px/1 var(--body); letter-spacing: .03em; padding: 17px 26px; border-radius: 4px; border: 1px solid var(--gold); cursor: pointer; text-decoration: none; }
+.btn.solid { background: var(--gold); color: var(--night); }
+.btn.line { background: transparent; color: var(--gold); }
+.btn:hover { filter: brightness(1.08); }
+
+.hero { padding-block: 64px 56px; display: grid; gap: 22px; text-align: center; justify-items: center; position: relative; }
+.hero::before { content: ""; position: absolute; left: 50%; top: 0; width: min(720px, 100%); height: 100%; transform: translateX(-50%); background: radial-gradient(ellipse at 50% 0%, rgba(227,192,141,.18), transparent 60%); pointer-events: none; }
+.chandelier { width: 120px; color: var(--gold); position: relative; }
+.eyebrow { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); }
+.hero h1 { font-family: var(--display); font-weight: 500; font-size: clamp(38px, 6.4vw, 72px); line-height: 1.04; margin: 0; max-width: 14em; text-wrap: balance; position: relative; }
+.hero h1 em { color: var(--gold); }
+.hero p { font-size: 18px; color: var(--muted); margin: 0; max-width: 34em; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; position: relative; }
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); width: 100%; margin-top: 18px; }
+.facts div { padding: 18px 8px; display: grid; gap: 2px; border-left: 1px solid var(--line); }
+.facts div:first-child { border-left: 0; }
+.facts b { font-family: var(--display); font-size: 30px; font-weight: 500; color: var(--gold); font-variant-numeric: tabular-nums; }
+.facts span { font-size: 13px; color: var(--muted); }
+
+section.block { padding-block: 60px 8px; }
+h2 { font-family: var(--display); font-weight: 500; font-size: clamp(28px, 4vw, 42px); line-height: 1.1; margin: 0 0 10px; text-wrap: balance; }
+.sub { color: var(--muted); margin: 0 0 28px; font-size: 17px; max-width: 38em; }
+
+/* Halls */
+.halls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.hall { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: grid; }
+.hall .pic { height: 150px; position: relative; }
+.pic-a { background: radial-gradient(circle at 50% 10%, rgba(227,192,141,.55), transparent 45%), linear-gradient(180deg, #3b2d22, #1d1714); }
+.pic-b { background: radial-gradient(circle at 30% 15%, rgba(255,255,255,.35), transparent 40%), radial-gradient(circle at 70% 15%, rgba(255,255,255,.3), transparent 40%), linear-gradient(180deg, #4a4642, #22201f); }
+.pic-c { background: radial-gradient(circle at 50% 20%, rgba(255,190,120,.45), transparent 45%), linear-gradient(180deg, #3a2a2e, #1b1416); }
+.hall .pic span { position: absolute; left: 14px; bottom: 12px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; background: rgba(0,0,0,.45); padding: 4px 10px; border-radius: 3px; }
+.hall .t { padding: 20px; display: grid; gap: 6px; }
+.hall h3 { font-family: var(--display); font-weight: 500; font-size: 24px; margin: 0; }
+.hall p { margin: 0; color: var(--muted); font-size: 15px; }
+.hall .cap { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 6px; font-size: 14px; }
+.hall .cap b { color: var(--gold); font-weight: 600; }
+
+/* Calendar + budget */
+.plan { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 24px; display: grid; gap: 18px; align-content: start; min-width: 0; }
+.card h3 { font-family: var(--display); font-weight: 500; font-size: 24px; margin: 0; }
+.cal-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.cal-head button { background: var(--panel-2); color: var(--text); border: 1px solid var(--line); width: 40px; height: 40px; border-radius: 4px; cursor: pointer; font-size: 18px; }
+.cal-head b { font-weight: 600; }
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; font-variant-numeric: tabular-nums; }
+.cal .wd { font-size: 12px; color: var(--muted); text-align: center; padding-bottom: 4px; }
+.cal button { aspect-ratio: 1; max-width: 100%; border-radius: 4px; border: 1px solid transparent; background: var(--panel-2); color: var(--text); font: 500 14px/1 var(--body); cursor: pointer; padding: 0; }
+.cal button.busy { background: var(--busy); color: #6d6267; text-decoration: line-through; cursor: not-allowed; }
+.cal button.free-wknd { border-color: var(--gold-deep); }
+.cal button[aria-pressed="true"] { background: var(--gold); color: var(--night); }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.picked { font-size: 15px; }
+.picked b { color: var(--gold); }
+
+.field { display: grid; gap: 8px; }
+.field > label, .field > span { font-weight: 500; font-size: 15px; }
+.range-row { display: flex; gap: 14px; align-items: center; }
+input[type="range"] { flex: 1; min-width: 0; accent-color: var(--gold); }
+.range-row output { font-family: var(--display); font-size: 24px; min-width: 64px; text-align: right; font-variant-numeric: tabular-nums; }
+.menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.menu label { border: 1px solid var(--line); border-radius: 4px; padding: 12px 10px; cursor: pointer; display: grid; gap: 2px; font-size: 14px; }
+.menu label small { color: var(--muted); font-size: 12px; }
+.menu input { position: absolute; opacity: 0; pointer-events: none; }
+.menu label:has(input:checked) { border-color: var(--gold); background: rgba(227,192,141,.08); }
+.menu label:has(input:focus-visible) { outline: 2px solid var(--gold); outline-offset: 2px; }
+.opts { display: grid; gap: 8px; }
+.opt { display: flex; justify-content: space-between; gap: 12px; align-items: center; font-size: 15px; cursor: pointer; }
+.opt span { display: flex; gap: 10px; align-items: center; }
+.opt input { width: 18px; height: 18px; accent-color: var(--gold); }
+.opt b { font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.budget { border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 6px; }
+.budget .sum { font-family: var(--display); font-size: clamp(34px, 4.6vw, 44px); color: var(--gold); line-height: 1; font-variant-numeric: tabular-nums; }
+.budget .per { font-size: 14px; color: var(--muted); }
+.gift { background: rgba(227,192,141,.1); border: 1px dashed var(--gold-deep); border-radius: 4px; padding: 12px 14px; font-size: 14px; }
+.gift b { color: var(--gold); }
+
+/* Lead */
+.lead { margin-top: 60px; border: 1px solid var(--gold-deep); border-radius: 6px; padding: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; background: linear-gradient(160deg, rgba(227,192,141,.08), transparent 60%); }
+.lead p { margin: 0; color: var(--muted); }
+.lead form { display: grid; gap: 12px; }
+.lead input { width: 100%; font: 400 16px/1.4 var(--body); padding: 15px 16px; border-radius: 4px; border: 1px solid var(--line); background: var(--panel-2); color: var(--text); }
+.ok { border: 1px solid var(--gold); border-radius: 4px; padding: 18px; }
+.err { color: #f0a58e; font-size: 14px; margin: 0; }
+.foot { padding-block: 28px 0; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+
+@media (max-width: 880px) {
+  .halls { grid-template-columns: 1fr; }
+  .plan, .lead { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: 1fr 1fr; }
+  .facts div:nth-child(3) { border-left: 0; }
+  .facts div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 480px) {
+  .menu { grid-template-columns: 1fr; }
+  .card, .lead { padding: 18px; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="chand" viewBox="0 0 120 70">
+    <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+      <path d="M60 0v14"/><path d="M20 30 C30 46 90 46 100 30"/><path d="M34 24 C42 36 78 36 86 24"/>
+      <path d="M60 14 L20 30 M60 14 L100 30 M60 14 L34 24 M60 14 L86 24 M60 14 V40"/>
+      <path d="M20 30v8 M100 30v8 M34 24v8 M86 24v8 M60 40v8"/>
+    </g>
+    <g fill="currentColor"><circle cx="20" cy="42" r="3"/><circle cx="100" cy="42" r="3"/><circle cx="34" cy="36" r="3"/><circle cx="86" cy="36" r="3"/><circle cx="60" cy="52" r="3.5"/></g>
+  </symbol>
+</svg>
+
+<div class="wrap">
+  <nav class="nav">
+    <div class="logo">Нұрлы <span>той-холл</span></div>
+    <span class="demo">Демо-пример сайта</span>
+  </nav>
+
+  <header class="hero">
+    <svg class="chandelier" viewBox="0 0 120 70" aria-hidden="true"><use href="#chand"/></svg>
+    <div class="eyebrow">Астана · Есильский район</div>
+    <h1>Той, о котором <em>будут вспоминать</em> годами</h1>
+    <p>Три зала от 60 до 500 гостей, своя кухня, асаба и шоу-программа. Свадьбы, ұзату, юбилеи и сүндет той.</p>
+    <div class="hero-cta">
+      <a class="btn solid" href="#plan">Проверить свободную дату</a>
+      <a class="btn line" href="#halls">Смотреть залы</a>
+    </div>
+    <div class="facts">
+      <div><b>500</b><span>гостей в большом зале</span></div>
+      <div><b>от 12 000 ₸</b><span>меню на гостя</span></div>
+      <div><b>300</b><span>парковочных мест</span></div>
+      <div><b>9 лет</b><span>проводим тои</span></div>
+    </div>
+  </header>
+
+  <section class="block" id="halls" aria-labelledby="t-halls">
+    <h2 id="t-halls">Залы</h2>
+    <p class="sub">Каждый зал со своим входом, сценой и звуком. Можно приехать посмотреть в любой день с 11:00 до 19:00.</p>
+    <div class="halls">
+      <article class="hall"><div class="pic pic-a"><span>Хрустальные люстры</span></div><div class="t"><h3>Алтын</h3><p>Главный зал с высокими потолками и большой сценой для живой музыки.</p><div class="cap"><span>до <b>500</b> гостей</span><span>от <b>12 000 ₸</b>/гость</span></div></div></article>
+      <article class="hall"><div class="pic pic-b"><span>Светлый зал</span></div><div class="t"><h3>Інжу</h3><p>Белый мрамор и панорамные окна. Любимый зал для ұзату.</p><div class="cap"><span>до <b>250</b> гостей</span><span>от <b>13 500 ₸</b>/гость</span></div></div></article>
+      <article class="hall"><div class="pic pic-c"><span>Камерный</span></div><div class="t"><h3>Шағын</h3><p>Для юбилеев, тұсаукесер и семейных вечеров.</p><div class="cap"><span>до <b>80</b> гостей</span><span>от <b>15 000 ₸</b>/гость</span></div></div></article>
+    </div>
+  </section>
+
+  <section class="block" id="plan" aria-labelledby="t-plan">
+    <h2 id="t-plan">Выберите дату и посчитайте бюджет</h2>
+    <p class="sub">Свободные даты обновляются каждый день. Выходные на лето разбирают за полгода.</p>
+    <div class="plan">
+      <div class="card">
+        <div class="cal-head">
+          <button type="button" id="prev" aria-label="Предыдущий месяц">‹</button>
+          <b id="month-name"></b>
+          <button type="button" id="next" aria-label="Следующий месяц">›</button>
+        </div>
+        <div class="cal" id="cal"></div>
+        <div class="legend"><span><i style="background:var(--panel-2);border:1px solid var(--gold-deep)"></i>свободные выходные</span><span><i style="background:var(--busy)"></i>занято</span></div>
+        <div class="picked" id="picked">Нажмите на свободную дату.</div>
+      </div>
+      <div class="card">
+        <h3>Бюджет тоя</h3>
+        <div class="field">
+          <label for="guests">Гостей</label>
+          <div class="range-row"><input type="range" id="guests" min="40" max="500" step="10" value="250"><output id="guests-out">250</output></div>
+        </div>
+        <div class="field">
+          <span id="t-menu">Меню</span>
+          <div class="menu" role="radiogroup" aria-labelledby="t-menu">
+            <label><input type="radio" name="menu" id="menu-std" value="12000" checked><span>Стандарт</span><small>12 000 ₸</small></label>
+            <label><input type="radio" name="menu" id="menu-prem" value="16000"><span>Премиум</span><small>16 000 ₸</small></label>
+            <label><input type="radio" name="menu" id="menu-lux" value="22000"><span>Люкс</span><small>22 000 ₸</small></label>
+          </div>
+        </div>
+        <div class="opts">
+          <label class="opt" for="o-asaba"><span><input type="checkbox" id="o-asaba" data-price="250000" checked>Асаба и диджей</span><b>250 000 ₸</b></label>
+          <label class="opt" for="o-show"><span><input type="checkbox" id="o-show" data-price="180000">Шоу-программа</span><b>180 000 ₸</b></label>
+          <label class="opt" for="o-decor"><span><input type="checkbox" id="o-decor" data-price="150000">Декор сцены и столов</span><b>150 000 ₸</b></label>
+        </div>
+        <div class="budget" aria-live="polite">
+          <span class="per">Примерный бюджет</span>
+          <span class="sum" id="sum">0 ₸</span>
+          <span class="per" id="per"></span>
+        </div>
+        <div class="gift"><b>Подарок при бронировании:</b> сайт-приглашение для гостей на казахском и русском, с ответами гостей.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lead" id="lead" aria-labelledby="t-lead">
+    <div style="display:grid;gap:10px;align-content:start">
+      <h2 id="t-lead">Забронировать дату</h2>
+      <p>Менеджер перезвонит в течение 15 минут, ответит на вопросы и пригласит посмотреть зал.</p>
+    </div>
+    <div>
+      <form id="lead-form" novalidate>
+        <input type="text" id="lead-date" placeholder="Дата тоя" aria-label="Дата тоя">
+        <input type="tel" id="lead-phone" placeholder="+7 7__ ___ __ __" autocomplete="tel" aria-label="Телефон">
+        <p class="err" id="lead-err" hidden>Укажите номер телефона, чтобы мы могли перезвонить.</p>
+        <button class="btn solid" type="submit">Забронировать</button>
+      </form>
+      <div class="ok" id="lead-ok" hidden><b>Заявка принята.</b><br>На настоящем сайте она сразу придёт менеджеру в WhatsApp. Это демо, поэтому никуда не отправлена.</div>
+    </div>
+  </section>
+
+  <footer class="foot"><span>Нұрлы той-холл, Астана</span><span>Демо-пример: название, цены и даты вымышлены</span></footer>
+</div>
+
+<script>
+const MONTHS = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+const MONTHS_GEN = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
+const now = new Date();
+let view = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+let picked = null;
+// Deterministic "busy" pattern so the demo looks lived-in: most Saturdays and some Fridays/Sundays are taken.
+const isBusy = d => { const dow = d.getDay(), n = d.getDate() + d.getMonth() * 31; if (dow === 6) return n % 3 !== 0; if (dow === 0 || dow === 5) return n % 2 === 0; return n % 7 === 0; };
+function renderCal() {
+  const y = view.getFullYear(), m = view.getMonth();
+  document.getElementById("month-name").textContent = MONTHS[m] + " " + y;
+  let html = ["Пн","Вт","Ср","Чт","Пт","Сб","Вс"].map(w => `<div class="wd">${w}</div>`).join("");
+  const offset = (new Date(y, m, 1).getDay() + 6) % 7;
+  html += "<div></div>".repeat(offset);
+  const days = new Date(y, m + 1, 0).getDate();
+  for (let d = 1; d <= days; d++) {
+    const dt = new Date(y, m, d), busy = isBusy(dt), wk = [5, 6, 0].includes(dt.getDay());
+    const sel = picked && picked.getTime() === dt.getTime();
+    html += `<button type="button" class="${busy ? "busy" : wk ? "free-wknd" : ""}" data-d="${d}" ${busy ? 'aria-disabled="true"' : ""} aria-pressed="${sel}" aria-label="${d} ${MONTHS_GEN[m]}${busy ? ", занято" : ""}">${d}</button>`;
+  }
+  const cal = document.getElementById("cal");
+  cal.innerHTML = html;
+  cal.querySelectorAll("button:not(.busy)").forEach(b => b.addEventListener("click", () => {
+    picked = new Date(y, m, Number(b.dataset.d));
+    const label = picked.getDate() + " " + MONTHS_GEN[m] + " " + y;
+    document.getElementById("picked").innerHTML = `Дата <b>${label}</b> свободна. Бронь держим 3 дня без предоплаты.`;
+    document.getElementById("lead-date").value = label;
+    renderCal();
+  }));
+}
+document.getElementById("prev").addEventListener("click", () => { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCal(); });
+document.getElementById("next").addEventListener("click", () => { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal(); });
+renderCal();
+
+const fmt = n => n.toLocaleString("ru-RU").replace(/ /g, " ") + " ₸";
+const guests = document.getElementById("guests");
+function calc() {
+  const g = Number(guests.value);
+  document.getElementById("guests-out").textContent = g;
+  const menu = Number(document.querySelector('input[name="menu"]:checked').value);
+  let sum = g * menu;
+  document.querySelectorAll(".opts input:checked").forEach(o => sum += Number(o.dataset.price));
+  document.getElementById("sum").textContent = fmt(sum);
+  document.getElementById("per").textContent = "≈ " + fmt(Math.round(sum / g / 100) * 100) + " на гостя со всеми услугами";
+}
+guests.addEventListener("input", calc);
+document.querySelectorAll('input[name="menu"], .opts input').forEach(i => i.addEventListener("change", calc));
+calc();
+
+document.getElementById("lead-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const ph = document.getElementById("lead-phone").value.replace(/\D/g, "");
+  const err = document.getElementById("lead-err");
+  if (ph.length < 10) { err.hidden = false; return; }
+  err.hidden = true; e.target.hidden = true; document.getElementById("lead-ok").hidden = false;
+});
+</script>
+
+</body></html>
